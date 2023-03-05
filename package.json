@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://iqura9.github.io/laba_1_Numerical_Methods",
+  "homepage": "https://iqura9.github.io/laba_1_Numerical_Methods/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
