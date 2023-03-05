@@ -1,0 +1,8 @@
+.app__graph{
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.app__graph canvas{
+  width: 100% ;
+  height: auto;
+}
