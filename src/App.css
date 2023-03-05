@@ -6,3 +6,44 @@
   width: 100% ;
   height: auto;
 }
+.graph-and-table{
+  position: relative;
+}
+.app_selectW{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.app__row{
+  display: flex;
+  justify-content: space-between;
+}
+.app__group{
+  display: flex;
+  gap: 15px;
+}
+.app{
+  margin: 8px;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+/* CSS */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -18,6 +18,7 @@ export const createData = (iter: number, xk: number, xk2: number, fx: number): I
 });
 export const g = (x: number): number => x - f(x) / (2 * Math.sin(x - 4) + 5);
 export const f = (x: number): number => 2 * Math.sin(x - 4) + x ** 2 + 5 * x - 3;
+export const fDerivative = (x: number): number => 2 * Math.cos(x - 4) + 2 * x + 5;
 
 const options = {
   responsive: true,
@@ -26,8 +27,7 @@ const options = {
       display: false,
     },
     title: {
-      display: true,
-      text: "Метод простої ітерації",
+      display: false,
       color: "white",
     },
   },
@@ -44,14 +44,19 @@ const options = {
 interface IGraphAndTable {
   epsilon: number,
   func: any,
+  name:string,
+  w?:number,
+  children?:any
 }
 
-const GraphAndTable: FC<IGraphAndTable> = memo(({ epsilon,func }) => {
-  const {data,rows} = useData(func, epsilon);
-  return (<>
+const GraphAndTable: FC<IGraphAndTable> = memo(({ epsilon,func,name, w, children}) => {
+  const {data,rows} = useData(func, epsilon, w);
+  return (<div className='graph-and-table'>
+        {children}
+        <h3>{name}</h3>
         <Line options={options} data={data} />
         <BasicTable data={rows}/>
-  </>);
+  </div>);
 });
 
 export default GraphAndTable;
