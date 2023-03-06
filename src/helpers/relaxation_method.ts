@@ -1,23 +1,23 @@
-import {createData, f, g, IData} from "../components/GraphAndTable";
+import { createData, f, g, IData } from "../components/GraphAndTable";
 
 export const calcRelaxation = (epsilon: number, w = 0.3) => {
-    const labels: number[] = [];
-    const dataAPI: number[] = [];
-    const rows: IData[] = [];
+  const labels: number[] = [];
+  const dataAPI: number[] = [];
+  const rows: IData[] = [];
 
-    let x0 = 1;
-    let x1 = (1 - w) * x0 + w * g(x0);
-    let iter = 1;
+  let x0 = 1;
+  let x1 = (1 - w) * x0 + w * g(x0);
+  let iter = 1;
 
-    while (Math.abs(x1 - x0) > epsilon) {
-        rows.push(createData(iter, x0, x1 - x0, f(x0)));
-        dataAPI.push(x1);
-        labels.push(iter);
+  while (Math.abs(x1 - x0) > epsilon) {
+    rows.push(createData(iter, x0, x1 - x0, f(x0)));
+    dataAPI.push(x0);
+    labels.push(iter);
 
-        x0 = x1;
-        x1 = (1 - w) * x0 + w * g(x0);
-        iter++;
-    }
+    x0 = x1;
+    x1 = (1 - w) * x0 + w * g(x0);
+    iter++;
+  }
 
-    return {labels,dataAPI,rows}
+  return { labels, dataAPI, rows };
 };
