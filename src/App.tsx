@@ -29,7 +29,7 @@ ChartJS.register(
 
 function App() {
     const [value, setValue] = useState<string>('1e-5');
-    const [w, setW] = useState<number>(0.5);
+    const [w, setW] = useState<number>(0.23);
 
     const handleChange = (event: any) => {
         setValue(event.target.value);
@@ -43,14 +43,24 @@ function App() {
     const optionsW = [];
     for (let i = -2; i >= -10; i--) {
         const value = `1e${i}`;
+        
         options.push(
             <option key={value} value={value}>
                 {value}
             </option>
         );
     }
-    for (let i = 0; i <= 1; i += 0.1) {
+    for (let i = 0; i <= 0.4; i += 0.1) {
+        
         const value = Math.round(i * 100) / 100
+        if(Number(value)==0.3){
+            const value = 0.23;
+            optionsW.push(
+                <option key={value} value={value}>
+                    {value}
+                </option>
+            );
+        }
         optionsW.push(
             <option key={value} value={value}>
                 {value}

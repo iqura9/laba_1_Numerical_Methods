@@ -40,7 +40,7 @@ export const BasicTable:FC<IBasicTable> = ({data}) => {
                     <TableRow className={classes.tableHeader}>
                         <TableCell>k</TableCell>
                         <TableCell align="center">x<sub>k</sub></TableCell>
-                        <TableCell align="center">x<sub>k</sub> - x<sub>k-1</sub></TableCell>
+                        <TableCell align="center">|x<sub>k</sub> - x<sub>k-1</sub>|</TableCell>
                         <TableCell align="center">f(x<sub>k</sub>)</TableCell>
                     </TableRow>
                 </TableHead>

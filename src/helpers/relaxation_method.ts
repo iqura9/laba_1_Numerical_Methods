@@ -5,18 +5,25 @@ export const calcRelaxation = (epsilon: number, w = 0.3) => {
   const dataAPI: number[] = [];
   const rows: IData[] = [];
 
-  let x0 = 1;
-  let x1 = (1 - w) * x0 + w * g(x0);
-  let iter = 1;
+  let x0 = 0;
+  let x1 = 0;
+  let iter = 0;
 
-  while (Math.abs(x1 - x0) > epsilon) {
-    rows.push(createData(iter, x0, x1 - x0, f(x0)));
-    dataAPI.push(x0);
+  dataAPI.push(x0);
+  labels.push(iter);
+  rows.push(createData(iter, x0, null, f(x1)));
+  while (Math.abs(x1 - x0) > epsilon || iter == 0) {
+    iter++;
+    x0 = x1;
+    x1 = x0 - w * f(x0);
+    
+    
+
+    rows.push(createData(iter, x1, Math.abs(x1 - x0), f(x1)));
+    dataAPI.push(x1);
     labels.push(iter);
 
-    x0 = x1;
-    x1 = (1 - w) * x0 + w * g(x0);
-    iter++;
+    
   }
 
   return { labels, dataAPI, rows };
